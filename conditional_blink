@@ -1,0 +1,31 @@
+'''
+blink white light when number is even
+blink red light when number is odd
+'''
+
+
+import RPi.GPIO as gp
+import time
+gp.setwarnings(False)
+gp.setmode(gp.BOARD)
+gp.setup(7,gp.OUT)
+gp.setup(11, gp.OUT)
+n = int(input("enter the number: "))
+if n%2==0:
+    for x in range(0,6):
+        gp.output(7,True)
+        time.sleep(0.30)
+        gp.output(7,False)
+        time.sleep(0.3)
+        print(" white light is blinking")
+        print("the number is even")
+else:
+    for x in range(0,9):
+        gp.output(11,True)
+        time.sleep(0.30)
+        gp.output(11,False)
+        time.sleep(0.3)
+        print(" red light is blinking")
+        print("the number is odd")
+gp.cleanup()
+
