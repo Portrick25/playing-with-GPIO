@@ -1,0 +1,23 @@
+'''
+requirements:
+1.raspberry pi with configured Raspbian os
+2.led light
+3.resistor
+4.connecting wires
+5.bread board
+6.monitor,keyboard,mouse 
+'''
+
+
+import RPi.GPIO as gp
+import time
+gp.setwarnings(False)
+gp.setmode(gp.BOARD)
+gp.setup(7,gp.OUT)
+for x in range(0,100):
+    gp.output(7,True)
+    time.sleep(0.30)
+    gp.output(7,False)
+    time.sleep(0.3)
+    print("light is blinking")
+gp.cleanup()
