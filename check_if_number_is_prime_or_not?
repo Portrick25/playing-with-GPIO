@@ -1,0 +1,27 @@
+'''
+if entered number is prime white led will blink.
+if entered number is not a prime number red light will blink.
+
+'''
+
+import RPi.GPIO as gp
+import time
+gp.setmode(gp.BOARD)
+gp.setup(7,OUT)
+gp.setup(11,OUT)
+n = int(input("eneter a number:"))
+for x in range(2,n/2):
+  if n%x ==0:
+    gp.pinmode(11,True)
+    time.sleep(.5)
+    gp.pinmode(11,False)
+    time.sleep(.5)
+  else:
+    gp.pinmode(7,True)
+    time.sleep(0.5)
+    gp.pinmode(7,False)
+    time.sleep(0.5)
+   
+gp.cleanup()
+    
+    
