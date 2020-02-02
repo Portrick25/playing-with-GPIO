@@ -6,6 +6,7 @@ if entered number is not a prime number red light will blink.
 
 import RPi.GPIO as gp
 import time
+gp.setwarnings(False)
 gp.setmode(gp.BOARD)
 gp.setup(7,OUT)
 gp.setup(11,OUT)
