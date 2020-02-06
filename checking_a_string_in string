@@ -1,0 +1,28 @@
+'''
+checking if a substring exist in a string.
+if exist redlight blink
+if not whitelight blink
+
+'''
+
+import RPi.GPIO as gp
+import time
+gp.setwarnings(False)
+gp.setmode(gp.BOARD)
+gp.setup(7, gp.OUT)
+gp.setup(11,gp.OUT)
+n=str(input("enter a string:"))
+i = str(input("enter the string you want to search:"))
+p = n.split(" ")
+for j in range(0,10):
+    if i in p:
+        print("red light is blinking")
+        gp.output(7, True)
+        time.sleep(0.8)
+        gp.output(7, False)
+    else:
+        print("white light is blinking")
+        gp.output(11, True)
+        time.sleep(0.8)
+        gp.output(11, False)
+
